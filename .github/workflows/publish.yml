@@ -20,11 +20,15 @@ jobs:
       - name: Extract package
         run: |
           mkdir package
-          unzip -q baileys-deffa.zip -d package
+          unzip -q deffa5556-bail.zip -d package
 
       - name: Install dependencies
         working-directory: package
         run: npm install
+
+      - name: Check package
+        working-directory: package
+        run: npm pkg get name version
 
       - name: Publish to npm
         working-directory: package
